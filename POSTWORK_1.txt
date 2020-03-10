@@ -1,0 +1,35 @@
+POSTWORK 1
+1.	DEFINIR EL CONJUNTO DE DATOS 
+SE SELECCIONA BASE DE DATOS DE https://www.kaggle.com DE RANKING MUNDIAL DE UNIVERSIDADES 
+2.	DEFINIR UNA ESTRUCTURA DE CARPETAS 
+SE CREA UNA CARPETA DENOMINADA MI_ PROYECTO Y DENTRO DE ELLA UNA MAS DENOMINADA MIS_DATOS
+
+alberto@Alberto MINGW64 ~
+$ cd desktop
+$ cd ROSALIA
+$ mkdir Mi_Proyecto
+$ cd Mi_Proyecto
+$ mkdir Mis_Datos
+
+3.	SE DESCARGA EL SET DE DATOS DE RANKING MUNDIAL DE UNIVERSIDADES EN EL ESCRITORIO Y SE MUEVE A LA CARPETA DE MI_PROYECTO
+alberto@Alberto MINGW64 ~/desktop/ROSALIA
+$ mv world-university-rankings.zip Mi_Proyecto                                  
+$ cd Mi_Proyecto
+$ unzip world-university-rankings.zip                                           Archive:  world-university-rankings.zip
+  inflating: cwurData.csv
+  inflating: education_expenditure_supplementary_data.csv
+  inflating: educational_attainment_supplementary_data.csv
+  inflating: school_and_country_table.csv
+  inflating: shanghaiData.csv
+  inflating: timesData.csv
+SE MUEVE A LA CARPETA DE MIS_ DATOS
+$ mv cwurData.csv education_expenditure_supplementary_data.csv educational_attainment_supplementary_data.csv school_and_country_table.csv shanghaiData.csv timesData.csv Mis_Datos
+SE ELIMINA LA CARPETA ZIP DE MIS DOCUMENTOS 
+$ rm world-university-rankings.zip
+
+4.	SE CREA COPIA DE RESPALDO
+
+alberto@Alberto MINGW64 ~/desktop/ROSALIA
+$ cp -r Mi_Proyecto/ Mi_Proyecto1/
+
+5. No se pudo realizar el script
