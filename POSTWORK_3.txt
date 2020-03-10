@@ -1,0 +1,82 @@
+
+
+
+POSTWORK 3
+ 
+
+EN LA CONSOLA DE GIT BASH
+
+1.	CARPETA DE TRABAJO SESION03/POSTWORK
+$ cd Mi_Proyecto
+$mkdir sesion03
+
+2.	COPIAR DATOS DE SESION02 A SESION 03
+$cp  -r Mis_Datos sesion03
+
+3.1 ANALIZAR EL CONTENIDO DEL ARCHIVO
+3.2 DEFINIR LA LISTA DE CAMPOS Y TIPOS DE DATOS PARA CADA UNO
+
+
+EN LA CONSOLA DE MINICONDA:
+
+3.3 REALIZAR CONEXIÓN AL SERVIDOR MARIADB
+
+mycli -u root -h ec2-54-213-51-169.us-west-2.compute.amazonaws.com  --LOAD –INFILE TRUE
+
+
+3.4 HACE USO DE LA BASE DE DATOS
+(none)> show databases;
++--------------------+
+| Database           |
++--------------------+
+| ANDREA             |
+| Adrii_Merlin       |
+| FranciscoGarcia_DB |
+| Jazmin             |
+| Lilia              |
+| ROSS               |
+| Rosalia            |
+| Rosalia_TP         |
+| Sam                |
+| Sergio             |
+| Zamby              |
+| information_schema |
+| janet              |
+| maria              |
+| mysql              |
+| performance_schema |
++--------------------+
+
+16 rows in set
+Time: 0.169s
+(none)> use Rosalia_TP;
+You are now connected to database "Rosalia_TP" as user "root"
+Time: 0.083s
+
+
+3.5 CREAR UNA TABLA
+Rosalia_TP> create table ranking(
+            world_rank int primary key,
+            institution varchar (30),
+            country varchar (20),
+            national_rank int,
+            quality_of_education int,
+            alumni_employment int,
+            quality_of_faculty int,
+            publications int,
+            influence int,
+            citations int,
+            broad_impact int,
+            patents int,
+            score int,
+            year_ int);
+
+
+3.6 IMPORTAR DATOS DE LA TABLA
+
+RosaliaTP>  
+load  data local infile C:/Users/USER/Desktop/Mi_Proyecto/sesion03/Mis_Datos/cwr.csv into tables rankig fields terminated by”,”;
+
+
+3.7 VALIDAR DATOS
+Rosalia_TP> select *from ranking;
