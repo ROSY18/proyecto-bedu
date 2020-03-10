@@ -1,0 +1,135 @@
+
+
+
+POSTWORK 4
+
+POSTWORK 4
+
+1.	CREAR CARPETA DE SESION04 / POSTWORK
+2.	COPIAR CARPETA DE DATOS  DE SESION 03
+$ cd Mi_Proyecto
+$mkdir sesion04
+$cp  -r Mis_Datos sesion04
+
+3.	CONEXIÓN AL SERVIDOR MARIA DB
+mycli -u root -h ec2-54-213-51-169.us-west-2.compute.amazonaws.com  --LOAD –INFILE TRUE
+
+4.	PARA CADA TABLA:
+a.	ANALIZAR CONTENIDO DE LA TABLA
+b.	APLICAR FILTROS
+
+Rosalia_TP> select *from ranking where country="USA" LIMIT 10;
+Reconnecting...
++------------+--------------------------------+---------+---------------+-------
+---------------+-------------------+--------------------+--------------+--------
+---+-----------+--------------+---------+-------+-------+
+| world_rank | institution                    | country | national_rank | qualit
+y_of_education | alumni_employment | quality_of_faculty | publications | influen
+ce | citations | broad_impact | patents | score | year_ |
++------------+--------------------------------+---------+---------------+-------
+---------------+-------------------+--------------------+--------------+--------
+---+-----------+--------------+---------+-------+-------+
+| 1          | "Harvard University"           | USA     | 1             | 7
+               | 9                 | 1                  | 1            | 1
+   | 1         | 0            | 5       | 100   | 2012  |
+| 2          | "Massachusetts Institute of Te | USA     | 2             | 9
+               | 17                | 3                  | 12           | 4
+   | 4         | 0            | 1       | 92    | 2012  |
+| 3          | "Stanford University"          | USA     | 3             | 17
+               | 11                | 5                  | 4            | 2
+   | 2         | 0            | 15      | 90    | 2012  |
+| 5          | "California Institute of Techn | USA     | 4             | 2
+               | 29                | 7                  | 37           | 22
+   | 22        | 0            | 18      | 85    | 2012  |
+| 6          | "Princeton University"         | USA     | 5             | 8
+               | 14                | 2                  | 53           | 33
+   | 26        | 0            | 101     | 83    | 2012  |
+| 8          | "Yale University"              | USA     | 6             | 14
+               | 31                | 12                 | 14           | 6
+   | 15        | 0            | 66      | 79    | 2012  |
+| 9          | "Columbia University"          | USA     | 7             | 23
+               | 21                | 10                 | 13           | 12
+   | 14        | 0            | 5       | 79    | 2012  |
+| 11         | "University of Chicago"        | USA     | 9             | 15
+               | 26                | 8                  | 34           | 20
+   | 28        | 0            | 101     | 74    | 2012  |
+| 12         | "Cornell University"           | USA     | 10            | 21
+               | 42                | 14                 | 22           | 21
+   | 16        | 0            | 10      | 74    | 2012  |
+| 13         | "University of Pennsylvania"   | USA     | 11            | 31
+               | 16                | 24                 | 9            | 10
+   | 8         | 0            | 9       | 74    | 2012  |
+
+c.	CONTAR REGISTROS
+
+Rosalia_TP> select count(*)from ranking where country="USA";
++----------+
+| count(*) |
++----------+
+| 204      |
++----------+
+1 row in set
+Time: 0.176s
+
+d.	UTILIZAR JOIN
+
+Rosalia_TP> select * from ranking inner join `timesData` on ranking.country=tim
+	            esData.num_students;
+	+------------+--------------------------------+----------------------+----------
+	-----+----------------------+-------------------+--------------------+----------
+	----+-----------+-----------+--------------+---------+-------+-------+----------
+	--+--------------------------------+----------------------+----------+----------
+	-----+----------+-----------+--------+-------------+--------------+-------------
+--------+------------------------+-------------------+-------+
+	| world_rank | institution                    | country              | national_
+	rank | quality_of_education | alumni_employment | quality_of_faculty | publicati
+	ons | influence | citations | broad_impact | patents | score | year_ | world_ran
+	k | university_name                | country              | teaching | internati
+	onal | research | citations | income | total_score | num_students | student_staf
+	f_ratio | international_students | female_male_ratio | year_ |
+	+------------+--------------------------------+----------------------+----------
+	-----+----------------------+-------------------+--------------------+----------
+	----+-----------+-----------+--------------+---------+-------+-------+----------
+	--+--------------------------------+----------------------+----------+----------
+	-----+----------+-----------+--------+-------------+--------------+-------------
+	--------+------------------------+-------------------+-------+
+	| 0          | institution                    | country              | 0
+	     | 0                    | 0                 | 0                  | 0
+	    | 0         | 0         | 0            | 0       | 0     | 0     | 0
+	  | university_name                | country              | 0        | 0
+.	     | 0        | 0         | 0      | 0           | 0            | 0
+	        | 0                      | 0                 | 0     |
+	| 0          | institution                    | country              | 0
+	     | 0                    | 0                 | 0                  | 0
+	    | 0         | 0         | 0            | 0       | 0     | 0     | 1
+	  | Harvard University             | United States of Ame | 100      | 72
+	     | 99       | 99        | 35     | 96          | 0            | 152
+	        | 9                      | 25                | 0     |
+	| 0          | institution                    | country              | 0
+	     | 0                    | 0                 | 0                  | 0
+	    | 0         | 0         | 0            | 0       | 0     | 0     | 2
+	  | California Institute of Techno | United States of Ame | 98       | 55
+	     | 98       | 100       | 84     | 96          | 0            | 243
+	        | 7                      | 27                | 33    |
+	| 0          | institution                    | country              | 0
+	     | 0                    | 0                 | 0                  | 0
+	    | 0         | 0         | 0            | 0       | 0     | 0     | 3
+	  | Massachusetts Institute of Tec | United States of Ame | 98       | 82
+	     | 91       | 100       | 88     | 96          | 0            | 74
+	        | 9                      | 33                | 37    |
+	| 0          | institution                    | country              | 0
+	     | 0                    | 0                 | 0                  | 0
+	    | 0         | 0         | 0            | 0       | 0     | 0     | 4
+	  | Stanford University            | United States of Ame | 98       | 30
+	     | 98       | 99        | 64     | 94          | 0            | 596
+	        | 8                      | 22                | 42    |
+	| 0          | institution                    | country              | 0
+	     | 0                    | 0                 | 0                  | 0
+	    | 0         | 0         | 0            | 0       | 0     | 0     | 5
+	  | Princeton University           | United States of Ame | 91       | 70
+	     | 95       | 100       | 0      | 94          | 0            | 929
+	        | 8                      | 27                | 45    |
+	| 0          | institution                    | country              | 0
+	     | 0                    | 0                 | 0                  | 0
+	-- Más  --
+.	
