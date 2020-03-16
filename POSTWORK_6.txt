@@ -1,0 +1,108 @@
+POSTWORK 06
+
+EN TERMINAL GITBASH
+
+1. SE CREA LA CARPETA POSTWORK SESION 05
+ $ cd desktop 
+ $ cd cursoBD
+ $ mkdir Sesion06
+ $ ls 
+
+
+
+EN MONGO DB 
+
+Entrar a MongoDB Compas con la direccion mongodb://root:bedu0583@ec2-54-213-51-169.us-west-2.compute.amazonaws.com:27017/?authSource=admin&connectTimeoutMS=600000
+
+
+¿Cuál es la lista de todos los documentos que incluyan la palabra "Institute"en el campo de "institution"?
+
+$FILTER:  {"institution": /Institute/}
+DISPLAYING DOCUMENTS: 90
+
+
+¿Cuáles son los documentos que tienen menos de 200 publicaciones?
+
+$FILTER: {"publications": {$lt: "200"}}
+DISPLAYING DOCUMENTS: 299
+
+
+¿Cuál es el promedio de todos los valores de algún campo como edad, precio, cantidad?
+
+
+¿Cuál es la cantidad de documentos por institucion?
+
+AGREGACIONES 
+$ADDFIELDS
+
+{
+  "len_institution": {$strLenBytes:"$institution"}
+}
+
+Despliega el total de veces que aparece cada institucion, ejemplo:
+
+_id:5e6cf18929e9302578057360
+institution:""Harvard University""
+len_institution:20
+
+
+_id:5e6cf18929e9302578057361
+institution:""Massachusetts Institute of Technology""
+len_institution:39
+
+
+_id:5e6cf18929e9302578057362
+institution:""Stanford University""
+len_institution:21
+
+
+
+¿Cuál es la institucion con mas documentos?
+
+$ADDFIELDS
+{
+  "len_institution": {$strLenBytes:"$institution"}
+}
+
+$SORT
+{
+  "len_institution": -1
+}
+
+
+Muestra en orden descendente la institucion con mas documentos:
+
+_id:5e6cf18929e9302578057
+institution:""Korea Advanced Institute of Science and Technology (KAIST)""
+len_institution:60
+
+¿Cuál es el numero de documentos que contienen el mismo valor de "world_rank"?
+
+AGREGACIONES
+$GROUP
+
+{
+  _id: "$world_rank",
+  total: {$sum: 1 }
+}
+
+Donde los resultados son 
+_id:"581"
+total:2
+
+_id:"108"
+total:2
+
+_id:"658"
+total:2
+
+_id:"473"
+total:2
+
+
+
+
+
+
+
+
