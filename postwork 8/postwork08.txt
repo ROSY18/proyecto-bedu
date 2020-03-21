@@ -1,0 +1,61 @@
+
+
+POST WORK 08
+
+
+
+1.- Realizar una conexión desde Compass a la base de datos creada en MongoDB Atlas.
+
+- Entrar a MngoDBAtlas e iniciar sesion 
+- Obtener la direccion para concetarse a MongoDBCompass en CONNECT_ CONECT USING MONGO DB COMPASS_ IHAVE MONGODB COMPAS_ COPY THE CONNECTION STRING
+  mongodb+srv://rosy:<password>@rosaliadb-2qne3.mongodb.net/test
+- Se crea nueva base de datos_ INAI y nueva coleccion _ SOLICITUDES
+- Se descarga API de Solicitudes INAI  de https://api.datos.gob.mx/v1/inai.solicitudes  y se guarda en archivo JSON
+- Se importa  a la coleccion de solicitudes ( Total de documentos: 100)
+
+2.- Analizar la estructura de los datos para conocer el contexto y poder formular preguntas.
+
+- La estructura de los datos es la siguiente:
+_id: "56eb2f18d288290100392fb6"
+FOLIO : "'0673800000103"
+FECHASOLICITUD : "12/06/2003 07:42"
+DEPENDENCIA : "INSTITUTO FEDERAL DE ACCESO A LA INFORMACIÓN Y PROTECCIÓN DE DATOS"
+ESTATUS :"Terminada"
+MEDIOENTRADA: "Electrónica"
+TIPOSOLICITUD: "Información Pública"
+DESCRIPCIONSOLICITUD:"Solicito una copia simple del Acta del Pleno del Instituto Celebrada e..."
+OTROSDATOS:"Todos los martes el Pleno del IFAI lleva a cabo sus sesiones ordinaria..."
+ARCHIVOADJUNTOSOLICITUD: ""
+MEDIOENTREGA: "Copia Simple"
+FECHALIMITE: ""
+RESPUESTA: "No se dará trámite a la solicitud"
+TEXTORESPUESTA:"Es una solicitud prueba con motivo de la puesta en marcha del Sistema ..."
+ARCHIVORESPUESTA: ""
+FECHARESPUESTA:"02/07/2003"
+PAIS :"México"
+ESTADO:"Distrito Federal"
+MUNICIPIO:"MIGUEL HIDALGO"
+CODIGOPOSTAL:"11950"
+SECTOR:"Hacienda y Crédito Público"
+
+
+
+3.- Después, formular preguntas sobre el conjuntos de datos
+
+- TOTAL DE SOLICITUDES HECHAS EN EL DISTRITO FEDERAL
+- TOTAL DE SOLICITUDES HECHAS EN EL DISTRITO FEDERAL PARA LA DEFENSA NACIONAL
+
+
+4.- Por cada pregunta, realizar las consultas o ajustes necesarios a los datos para poder responderlas.
+
+
+
+- TOTAL DE SOLICITUDES HECHAS EN EL DISTRITO FEDERAL
+
+FILTER: {"ESTADO": "Distrito Federal"}
+
+
+- TOTAL DE SOLICITUDES HECHAS EN EL DISTRITO FEDERAL PARA LA DEFENSA NACIONAL
+
+{"ESTADO": "Distrito Federal", "SECTOR": "Defensa Nacional"}
+

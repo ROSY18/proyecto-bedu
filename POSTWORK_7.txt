@@ -1,0 +1,45 @@
+
+
+POSTWORK 07
+
+1.Crear y nombrar la base de datos que usarás para tu proyecto haciendo uso de Compass
+
+- Entrar a MngoDBAtlas e iniciar sesion en https://account.mongodb.com/account/login?nds=true
+- crear un nuevo cluster, opcion BUILD A NEW CLUSTER _ rosaliaBD
+- obtener la direccion para concetarse a MongoDBCompass en CONNECT_ CONECT USING MONGO DB COMPASS_ IHAVE MONGODB COMPAS_ COPY THE CONNECTION STRING
+  mongodb+srv://rosy:<password>@rosaliadb-2qne3.mongodb.net/test
+- Entrar a Mong DBCompass acceder con esta direccion 
+
+
+2. Después, por cada conjunto de datos nombra y crea una colección
+- En MogoDBCompass CRATE DATABASES: Universidades _ CREATE COLLECTIONS: World Ranking
+
+
+3. Importa cada conjunto de datos en la correspondiente colección
+- En la coleccion creada: UNIVERDIDADES.WORLD RATING
+  IMPORT DATA_ SELECT INPUT FILE TYPE: CSV_ SELECT FILE: sanghaiData.csv
+
+ Displaying documents 1 - 20 of 4898
+  
+
+4. Al final verifica que la cantidad de documentos sea la misma que la cantidad de registros en los conjuntos de datos. 
+
+
+
+  Cada docuemento contiene:
+
+_id:5e73fe83ed47271f802b9d2c
+world_rank :"1"
+university_name:"Harvard University"
+national_rank:"1"
+total_score: "100.0"
+alumni:"100.0"
+award:"100.0"
+hici:"100.0"
+ns:"100.0"
+pub:"100.0"
+pcp:"72.4"
+year:"2005"
+
+ 
+
